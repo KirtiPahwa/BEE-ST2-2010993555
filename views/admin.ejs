@@ -1,39 +1,43 @@
 <html>
-    <head>
-        <style>
-            body{
-                padding:1rem;
-            }
-            .button{
-                width:8rem;
-                padding: 8px;
-                background-color: orange;
-                margin:1rem;
-                border-radius: 1rem;
-                cursor: pointer;
-                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-                text-decoration: none;
-                color:black
-            }
-            body{
-                padding:1rem;
-                background: linear-gradient(to right, #e0eafc, #cfdef3);
-            }
-            .button{
-                width:8rem;
-                padding: 8px;
-                background-color: orange;
-                margin:1rem;
-                border-radius: 1rem;
-                cursor: pointer;
-                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-                text-decoration: none;
-                color:black
-            }
-        </style>
-    </head>
-    <body>
-        <% for(var i=0; i < result.length; i++) { %>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">
+      User Details
+    </h1>
+    <table
+      border="1"
+      bordercolor="white"
+      bgcolor="black"
+      cellpadding="30px"
+      style="
+        color: white;
+        margin: 30px auto;
+        font-family: Arial, Helvetica, sans-serif;
+      "
+    >
+      <tr>
+        <th>S.NO.</th>
+        <th>Full Name</th>
+        <th>Password</th>
+        <th>User Name</th>
+        <th>Contact Number</th>
+        <th>Gender</th>
+      </tr>
+      <% for(var i=0; i < result.length; i++) { %>
+      <tr>
+        <td><%= result[i].id %></td>
+        <td><%= result[i].name %></td>
+        <td><%= result[i].password %></td>
+        <td><%= result[i].username %></td>
+        <td><%= result[i].contact %></td>
+        <td><%= result[i].gender %></td>
+      </tr>
+      <% } %>
+    </table>
+
+    <!-- <% for(var i=0; i < result.length; i++) { %>
         <tr>
         <td style="font-size:20px">ID : <%= result[i].id %></td><br><br>
         <td>Name : <%= result[i].name %></td><br>
@@ -43,10 +47,10 @@
         <td>gender : <%= result[i].gender %></td><br>
         </tr><br>
         <hr>
-        <% } %>
-        <br>
+        <% } %> -->
+    <!-- <br>
         <a href="/" class="button">
             Home
-        </a>
-    </body>
+        </a> -->
+  </body>
 </html>

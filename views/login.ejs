@@ -1,231 +1,177 @@
 <html>
-    <head>
-        <style>
-        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+  <head>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .outer_container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      aside {
+        width: 50%;
+      }
+      .left_box {
+        height: 675px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .credential_container {
+        height: 400px;
+        width: 70%;
+      }
+      .heading_container {
+        padding: 30px;
+        text-align: center;
+      }
+      .heading_container h1 {
+        padding: 18px;
+      }
+      .heading_container p {
+        color: gray;
+        font-size: 15px;
+      }
+      .log_with_google_container {
+        height: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .log_with_google_container button {
+        height: 40px;
+        width: 70%;
+        background-color: transparent;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      .google_icon {
+        display: inline-block;
+        margin-right: -12px;
+      }
+      .log_with_google_container p {
+        display: inline-block;
+        margin-left: 10px;
+        color: gray;
+      }
+      .horizontal_line {
+        display: flex;
+        flex-direction: row;
+        color: gray;
+        width: 70%;
+        margin: 30px auto;
+      }
+      .horizontal_line:before,
+      .horizontal_line:after {
+        content: "";
+        flex: 1 1;
+        border-bottom: 1px solid;
+        margin: auto;
+      }
+      .horizontal_line:before {
+        margin-right: 10px;
+      }
+      .horizontal_line:after {
+        margin-left: 10px;
+      }
+      .inner_container {
+        width: 70%;
+        margin: auto;
+      }
+      input {
+        border: none;
+        border-bottom: 1px solid gray;
+        width: 100%;
+        padding: 10px 0px;
+        margin: 15px 0px;
+      }
+      .remember {
+        display: inline-block;
+        margin-left: 7px;
+        font-size: 13px;
+      }
+      .forgot_pass_container {
+        width: 100%;
+        margin: 5px 0px;
+      }
+      .forgot_pass_container span {
+        float: right;
+        text-decoration: none;
+        color: black;
+      }
+      .forgot_pass_container span a {
+        color: black;
+        font-size: 14px;
+      }
+      .login_btn {
+        height: 40px;
+        width: 100%;
+        border: none;
+        background-color: black;
+        color: white;
+        margin: 25px 0px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer_container">
+      <aside class="left_box">
+        <div class="credential_container">
+          <div class="heading_container">
+            <h1>Login to Continue</h1>
+            <p>Welcome back! Please enter your details.</p>
+          </div>
 
-body {
-	background: linear-gradient(to right, #e0eafc, #cfdef3);
-    overflow-y: hidden;
-}
-
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-    overflow-y: hidden;
-    
-}
-
-.screen {		
-	background: linear-gradient(to right, #232526, #414345);	
-	position: relative;	
-	height: 500px;
-	width: 360px;	
-    overflow: hidden;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.screen__content {
-	z-index: 1;
-	position: relative;	
-	height: 100%;
-}
-
-.screen__background {		
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 0;
-	-webkit-clip-path: inset(0 0 0 0);
-	clip-path: inset(0 0 0 0);	
-}
-
-.screen__background__shape {
-	transform: rotate(45deg);
-	position: absolute;
-}
-
-.screen__background__shape1 {
-	height: 520px;
-	width: 520px;
-	background: #FFF;	
-	top: -50px;
-	right: 120px;	
-	border-radius: 0 72px 0 0;
-}
-
-.screen__background__shape2 {
-	height: 220px;
-	width: 220px;
-	background: #cf5334;	
-	top: -172px;
-	right: 0;	
-	border-radius: 32px;
-}
-
-.screen__background__shape3 {
-	height: 540px;
-	width: 190px;
-	background: linear-gradient(270deg, #e0c43d, #d9542c);
-	top: -24px;
-	right: 0;	
-	border-radius: 32px;
-}
-
-.screen__background__shape4 {
-	height: 400px;
-	width: 200px;
-	background: #c2b140;	
-	top: 420px;
-	right: 50px;	
-	border-radius: 60px;
-}
-
-.login {
-	width: 320px;
-	padding: 30px;
-	padding-top: 156px;
-}
-
-.login__field {
-	padding: 20px 0px;	
-	position: relative;	
-}
-
-.login__icon {
-	position: absolute;
-	top: 30px;
-	color: #7875B5;
-}
-
-.login__input {
-	border: none;
-	border-bottom: 2px solid #D1D1D4;
-	background: none;
-	padding: 10px;
-	padding-left: 24px;
-	font-weight: 700;
-	width: 75%;
-	transition: .2s;
-}
-
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
-	outline: none;
-	border-bottom-color: #d26438;
-}
-
-.login__submit {
-	background: #fff;
-	font-size: 14px;
-	margin-top: 30px;
-	padding: 16px 20px;
-	border-radius: 26px;
-	border: 1px solid #D4D3E8;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	color: #9d5248;
-	box-shadow: 0px 2px 2px #e7972e;
-	cursor: pointer;
-	transition: .2s;
-}
-
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
-	border-color: #ca6022;
-	outline: none;
-}
-
-.button__icon {
-	font-size: 24px;
-	margin-left: auto;
-	color: #7875B5;
-}
-
-.social-login {	
-	position: absolute;
-	height: 140px;
-	width: 160px;
-	text-align: center;
-	bottom: 0px;
-	right: 0px;
-	color: #fff;
-}
-
-.social-icons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #aa431e;
-}
-
-.social-login__icon:hover {
-	transform: scale(1.5);	
-}    
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="screen">
-                <div class="screen__content">
-                    <form class="login" action="/login-form" method="POST">
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="text" name="username" id="username" class="login__input" placeholder="User name">
-                        </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input type="password" name="password" id="password" class="login__input" placeholder="Password">
-                        </div>
-                        <button class="button login__submit" type="submit">
-                            <span class="button__text">Log In Now</span>
-                            <i class="button__icon fas fa-chevron-right"></i>
-                        </button>
-                        <div style="width:100%;height:fit-content;text-align: center;margin-top: 1rem;">
-                            <a style="background-color:white;text-decoration:none;color:black;padding:8px;border-radius:1rem" href="/signup">SIGN UP</a>	
-                        </div>
-                        <div style="width:100%;height:fit-content;text-align: center;margin-top: 2rem;">
-                            <a style="background-color:white;text-decoration:none;color:black;padding:8px;border-radius:1rem" href="/">HOME</a>	
-                        </div>
-                    </form>
-                </div>
-                <div class="screen__background">
-                    <span class="screen__background__shape screen__background__shape4"></span>
-                    <span class="screen__background__shape screen__background__shape3"></span>		
-                    <span class="screen__background__shape screen__background__shape2"></span>
-                    <span class="screen__background__shape screen__background__shape1"></span>
-                </div>		
-            </div>
+          <main class="inner_container">
+            <form action="/login-form" method="POST">
+              <input
+                type="text"
+                required
+                name="username"
+                placeholder="User Name"
+              />
+              <input
+                type="password"
+                name="password"
+                required
+                placeholder="Password"
+              />
+              <div class="forgot_pass_container">
+                <input
+                  type="checkbox"
+                  id="remember"
+                  name="remember"
+                  value="remember"
+                />
+                <label class="remember" for="remember">
+                  Remember for 1 week
+                </label>
+                <span>
+                  <a href="/signup">Signup</a>
+                </span>
+              </div>
+              <button class="login_btn" type="submit">Log in</button>
+            </form>
+          </main>
         </div>
-        <!-- <form action="/login-form" method="POST">
-            <div>
-                Welcome
-            </div>
-            <div>
-                Create an account <a href="/signup">Signup</a>
-            </div>
-            <div>
-                <input type="text" name ="username"  placeholder="Enter Your Username" id="username" required>
-                <input type="password" name ="password" placeholder="Enter Your Password" id="password" required>
-            </div>
-            <div>
-                <button type="submit">submit</button>
-            </div>
-        </form> -->
-    </body>
+      </aside>
+      <aside class="right_box">
+        <lottie-player
+          src="https://assets8.lottiefiles.com/private_files/lf30_ISHFyg.json"
+          background="transparent"
+          speed="1"
+          style="width: 700px; height: 600px"
+          loop
+          autoplay
+        ></lottie-player>
+      </aside>
+    </div>
+  </body>
 </html>
